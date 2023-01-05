@@ -1,0 +1,79 @@
+.app-window {
+  display: flex;
+  height: 100vh;
+  background-color: var(--secondary-background);
+}
+
+.sidebar {
+  width: 35%;
+  max-width: 41.5rem;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border-sidebar);
+}
+
+header {
+  height: 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-inline: 1.5rem;
+}
+
+.header--avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.header--buttons {
+  display: flex;
+}
+
+.header--button {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--header-button);
+}
+
+.search {
+  background-color: var(--search-input);
+  border-bottom: 1px solid var(--border-search);
+  padding: 0.5rem 1.5rem;
+}
+
+.search--input {
+  background-color: var(--white);
+  height: 4rem;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  padding-inline: 1rem;
+}
+
+.search--input svg {
+  color: var(--header-button);
+}
+
+.search--input input {
+  flex: 1;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+}
+
+.chat-list {
+  flex: 1;
+  background-color: var(--white);
+  overflow-y: auto;
+}
+
+.content-area {
+}

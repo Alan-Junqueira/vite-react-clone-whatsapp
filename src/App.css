@@ -1,0 +1,46 @@
+:root {
+  font-size: 62.5%;
+  --main-background: #d2dbdc;
+  --secondary-background: #ededed;
+  --border-sidebar: #dddddd;
+  --border-search: #eeeeee;
+  --header-button: #919191;
+  --search-input: #f6f6f6;
+  --date-color: #999999;
+  --white: #ffffff;
+  --black: #000000;
+}
+
+* {
+  font-size: 1.6rem;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--main-background);
+  font-family: 'Segoe UI', Heuvetica Neue, Heuvetica, Lucida Grande, Arial;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+}
+
+input {
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+}
