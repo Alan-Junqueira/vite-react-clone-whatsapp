@@ -1,17 +1,35 @@
 import { useState, useEffect } from 'react';
 
-import avatarImage from '../../assets/avatar.png';
-
 import DonutLargeIcon from '@mui/icons-material/DonutLarge';
 import ChatIcon from '@mui/icons-material/Chat';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SearchIcon from '@mui/icons-material/Search';
 
-import './styles.css';
 import { ChatListIten } from '../../components/ChatListIten';
+import { ChatIntro } from '../../components/ChatIntro';
+import { ChatWindow } from '../../components/ChatWindow';
+
+import avatarImage from '../../assets/avatar.png';
+
+import './styles.css';
 
 export const Home = () => {
-  const [chatList, setChatList] = useState([{}, {}, {}, {}]);
+  const [chatList, setChatList] = useState([
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+  ]);
+  const [activeChat, setActiveChat] = useState({});
   return (
     <div className="app-window">
       <div className="sidebar">
@@ -40,14 +58,13 @@ export const Home = () => {
         </div>
         <section className="chat-list">
           {chatList.map((iten, index) => (
-            <ChatListIten 
-              key={index}
-              
-            />
+            <ChatListIten key={index} />
           ))}
         </section>
       </div>
-      <div className="content-area">...</div>
+      <div className="content-area">
+        {activeChat.chatId !== undefined ? <ChatWindow /> : <ChatIntro />}
+      </div>
     </div>
   );
 };

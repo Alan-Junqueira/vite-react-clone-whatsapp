@@ -75,5 +75,15 @@ header {
   overflow-y: auto;
 }
 
+.chat-list::-webkit-scrollbar {
+  width: 0.6rem;
+  height: 0.6rem;
+}
+
+.chat-list::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
 .content-area {
+  flex: 1;
 }
