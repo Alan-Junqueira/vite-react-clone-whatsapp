@@ -15,19 +15,12 @@ import './styles.css';
 
 export const Home = () => {
   const [chatList, setChatList] = useState([
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {}
+    { chatId: 1, title: 'Fulano de Tal', avatar: avatarImage },
+    { chatId: 2, title: 'Fulano de Tal', avatar: avatarImage },
+    { chatId: 3, title: 'Fulano de Tal', avatar: avatarImage },
+    { chatId: 4, title: 'Fulano de Tal', avatar: avatarImage },
+    { chatId: 5, title: 'Fulano de Tal', avatar: avatarImage },
+    { chatId: 6, title: 'Fulano de Tal', avatar: avatarImage }
   ]);
   const [activeChat, setActiveChat] = useState({});
   return (
@@ -49,7 +42,7 @@ export const Home = () => {
         </header>
         <div className="search">
           <div className="search--input">
-            <SearchIcon font-fontSize="small" />
+            <SearchIcon fontSize="medium" />
             <input
               type="search"
               placeholder="Procurar ou começar uma nova conversa"
@@ -58,7 +51,12 @@ export const Home = () => {
         </div>
         <section className="chat-list">
           {chatList.map((iten, index) => (
-            <ChatListIten key={index} />
+            <ChatListIten
+              key={index}
+              data={iten}
+              active={activeChat.chatId === chatList[index].chatId}
+              onClick={() => setActiveChat(chatList[index])}
+            />
           ))}
         </section>
       </div>

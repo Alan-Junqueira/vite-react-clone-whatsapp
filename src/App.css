@@ -8,10 +8,13 @@
   --search-input: #f6f6f6;
   --date-color: #999999;
   --hover-chatList: #f5f5f5;
+  --chatList-active: #ebebeb;
   --chat-intro-bg: #f8f9fa;
   --chat-intro-border: #4adf83;
   --chat-intro-h1: #525252;
   --chat-intro-h2: #777777;
+  --chat-window-border: #cccccc;
+  --chat-window-body: #e5ddd5;
   --white: #ffffff;
   --black: #000000;
 }

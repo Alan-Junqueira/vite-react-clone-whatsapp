@@ -9,6 +9,10 @@
   background-color: var(--hover-chatList);
 }
 
+.chatListIten.active {
+  background-color: var(--chatList-active);
+}
+
 .chatListIten--avatar {
   width: 5rem;
   height: 5rem;
