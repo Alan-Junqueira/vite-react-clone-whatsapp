@@ -57,7 +57,7 @@
   overflow-y: auto;
   background-color: var(--chat-window-body);
   background-size: cover;
-  background-position: center;
+  /* background-position: center; */
   background-image: url('../../../src/assets/chat-bg.png');
 }
 

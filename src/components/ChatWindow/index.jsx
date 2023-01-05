@@ -17,10 +17,40 @@ export const ChatWindow = () => {
   const [emojiOpen, setEmojiOpen] = useState(false);
   const [text, setText] = useState('');
 
+  const [listening, setListening] = useState(false);
+
   function handleEmojiClick(e) {
-    console.log(e.emoji);
     setText(text + e.emoji);
   }
+
+  let recognition = null;
+  let SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if (SpeechRecognition !== undefined) {
+    recognition = new SpeechRecognition();
+  }
+
+  function handleMicClick() {
+    if (recognition !== null) {
+      recognition.onstart = () => {
+        setListening(true);
+      };
+
+      recognition.onend = () => {
+        setListening(false);
+      };
+
+      recognition.onresult = (e) => {
+        setText(e.results[0][0].transcript);
+      };
+
+      recognition.start();
+    }
+  }
+
+  function handleSendClick() {}
+
   return (
     <div className="chatWindow">
       <div className="chatWindow--header">
@@ -79,9 +109,18 @@ export const ChatWindow = () => {
           />
         </div>
         <div className="chatWindow--pos">
-          <button className="chatWindow--button">
-            <SendIcon fontSize="large" />
-          </button>
+          {!text ? (
+            <button className="chatWindow--button" onClick={handleMicClick}>
+              <MicIcon
+                fontSize="large"
+                style={{ color: listening && '#126ECE' }}
+              />
+            </button>
+          ) : (
+            <button className="chatWindow--button" onClick={handleSendClick}>
+              <SendIcon fontSize="large" />
+            </button>
+          )}
         </div>
       </div>
     </div>
