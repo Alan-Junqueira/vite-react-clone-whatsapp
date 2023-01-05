@@ -17,8 +17,9 @@
   --chat-window-body: #e5ddd5;
   --chat-window-input: #4a4a4a;
   --chat-window-emoji-open: #009688;
-  --chat-window-mic-open: #126ECE;
-  --message-iten-user: #DCF8C6;
+  --chat-window-mic-open: #126ece;
+  --message-iten-user: #dcf8c6;
+  --new-chat-bg: #00bfa5;
   --white: #ffffff;
   --black: #000000;
 }

@@ -1,0 +1,84 @@
+.newChat {
+  width: 35%;
+  max-width: 41.5rem;
+  height: 100vh;
+
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+
+  background-color: var(--white);
+
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border-sidebar);
+
+  transition: all ease 0.3s;
+}
+
+.newChat--head {
+  display: flex;
+  background-color: var(--new-chat-bg);
+  align-items: center;
+  padding: 6rem 1.5rem 1.5rem 1.5rem;
+}
+
+.newChat--back-button {
+  width: 4rem;
+  height: 4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--white);
+}
+
+.newChat--head-title {
+  flex: 1;
+
+  font-size: 2rem;
+  line-height: 4rem;
+  height: 4rem;
+
+  color: var(--white);
+
+  margin-left: 2rem;
+}
+
+.newChat--list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.newChat--list::-webkit-scrollbar {
+  width: 0.6rem;
+  height: 0.6rem;
+}
+
+.newChat--list::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.newChat--iten {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  cursor: pointer;
+}
+
+.newChat--iten:hover {
+  background-color: var(--hover-chatList);
+}
+
+.newChat--iten-avatar {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  margin-right: 1.5rem;
+}
+
+.newChat--iten-name {
+  color: var(--black);
+}

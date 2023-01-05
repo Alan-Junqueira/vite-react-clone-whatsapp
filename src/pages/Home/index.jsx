@@ -12,6 +12,7 @@ import { ChatWindow } from '../../components/ChatWindow';
 import avatarImage from '../../assets/avatar.png';
 
 import './styles.css';
+import { NewChat } from '../../components/NewChat';
 
 export const Home = () => {
   const [chatList, setChatList] = useState([
@@ -28,9 +29,16 @@ export const Home = () => {
     avatar: avatarImage,
     name: 'Alan Junqueira'
   });
+  const [showNewChat, setShowNewChat] = useState(false);
 
   return (
     <div className="app-window">
+      <NewChat
+        chatList={chatList}
+        user={user}
+        show={showNewChat}
+        setShow={setShowNewChat}
+      />
       <div className="sidebar">
         <header>
           <img className="header--avatar" src={user.avatar} alt="" />
@@ -39,7 +47,7 @@ export const Home = () => {
               <DonutLargeIcon fontSize="large" />
             </button>
             <button className="header--button">
-              <ChatIcon fontSize="large" />
+              <ChatIcon fontSize="large" onClick={() => setShowNewChat(true)} />
             </button>
             <button className="header--button">
               <MoreVertIcon fontSize="large" />
