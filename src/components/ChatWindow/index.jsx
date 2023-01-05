@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import EmojiPicker from 'emoji-picker-react';
 
 import SearchIcon from '@mui/icons-material/Search';
@@ -12,10 +12,36 @@ import MicIcon from '@mui/icons-material/Mic';
 import avatarImage from '../../assets/avatar.png';
 
 import './styles.css';
+import { MessageIten } from '../MessageIten';
 
-export const ChatWindow = () => {
+export const ChatWindow = ({ user }) => {
+  const body = useRef();
+
   const [emojiOpen, setEmojiOpen] = useState(false);
   const [text, setText] = useState('');
+  const [list, setList] = useState([
+    { author: 123, body: 'Bla bla bla' },
+    { author: 123, body: 'Bla bla ' },
+    { author: 1234, body: 'Bla bla bla bla' },
+    { author: 123, body: 'Bla bla bla' },
+    { author: 123, body: 'Bla bla ' },
+    { author: 1234, body: 'Bla bla bla bla' },
+    { author: 123, body: 'Bla bla bla' },
+    { author: 123, body: 'Bla bla ' },
+    { author: 1234, body: 'Bla bla bla bla' },
+    { author: 123, body: 'Bla bla bla' },
+    { author: 123, body: 'Bla bla ' },
+    { author: 1234, body: 'Bla bla bla bla' },
+    { author: 123, body: 'Bla bla bla' },
+    { author: 123, body: 'Bla bla ' },
+    { author: 1234, body: 'Bla bla bla bla' },
+    { author: 123, body: 'Bla bla bla' },
+    { author: 123, body: 'Bla bla ' },
+    { author: 1234, body: 'Bla bla bla bla' },
+    { author: 123, body: 'Bla bla bla' },
+    { author: 123, body: 'Bla bla ' },
+    { author: 1234, body: 'Bla bla bla bla' }
+  ]);
 
   const [listening, setListening] = useState(false);
 
@@ -51,6 +77,14 @@ export const ChatWindow = () => {
 
   function handleSendClick() {}
 
+  useEffect(() => {
+    //* Conteúdo da div, é maior que altura disponível da div?
+    if (body.current.scrollHeight > body.current.offsetHeight) {
+      body.current.scrollTop =
+        body.current.scrollHeight - body.current.offsetHeight;
+    }
+  }, [list]);
+
   return (
     <div className="chatWindow">
       <div className="chatWindow--header">
@@ -70,7 +104,11 @@ export const ChatWindow = () => {
           </button>
         </div>
       </div>
-      <div className="chatWindow--body"></div>
+      <div ref={body} className="chatWindow--body">
+        {list.map((iten, index) => (
+          <MessageIten key={index} data={iten} user={user} />
+        ))}
+      </div>
       <div
         className="chatWindow--emoji-area"
         style={{ height: emojiOpen ? '20rem' : '0' }}
@@ -95,7 +133,7 @@ export const ChatWindow = () => {
             <InsertEmoticonIcon
               fontSize="large"
               onClick={() => setEmojiOpen(true)}
-              style={{ color: emojiOpen && '#009688' }}
+              style={{ color: emojiOpen && 'var(--chat-window-emoji-open)' }}
             />
           </button>
         </div>
@@ -113,7 +151,7 @@ export const ChatWindow = () => {
             <button className="chatWindow--button" onClick={handleMicClick}>
               <MicIcon
                 fontSize="large"
-                style={{ color: listening && '#126ECE' }}
+                style={{ color: listening && 'var(--chat-window-mic-open)' }}
               />
             </button>
           ) : (

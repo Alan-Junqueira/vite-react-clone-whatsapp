@@ -57,8 +57,19 @@
   overflow-y: auto;
   background-color: var(--chat-window-body);
   background-size: cover;
-  /* background-position: center; */
+  background-position: center;
   background-image: url('../../../src/assets/chat-bg.png');
+
+  padding: 2rem 3rem;
+}
+
+.chatWindow--body::-webkit-scrollbar {
+  width: 0.6rem;
+  height: 0.6rem;
+}
+
+.chatWindow--body::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .chatWindow--footer {
